@@ -40,4 +40,20 @@ struct RecordsDataModel {
         self.localDataSource = localDataSource
     }
     
+    func records() -> SafeSignal<[Record]> {
+        return localDataSource.records(with: [.project])
+    }
+    
+    func projects() -> SafeSignal<[Project]> {
+        return localDataSource.projects(with: [.records])
+    }
+    
+    func add(record: Record) -> SafeSignal<Void> {
+        return localDataSource.add(record: record)
+    }
+    
+    func add(project: Project) -> SafeSignal<Void> {
+        return localDataSource.add(project: project)
+    }
+    
 }

@@ -10,6 +10,7 @@ import Foundation
 
 enum AppError: Error {
     
+    case api(error: ApiError)
     case generic(error: Error)
     
 }

@@ -25,6 +25,9 @@
 		4FA3D5AA2162BC2700452B60 /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA3D5A92162BC2700452B60 /* MainFlowCoordinator.swift */; };
 		4FA3D5AD2162BC5900452B60 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA3D5AC2162BC5900452B60 /* FlowCoordinator.swift */; };
 		4FC3B7202162C32200B8344D /* RecordsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC3B71F2162C32200B8344D /* RecordsViewModel.swift */; };
+		4FC3B7222162D01700B8344D /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC3B7212162D01700B8344D /* ApiError.swift */; };
+		4FC3B7252162D77D00B8344D /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC3B7242162D77D00B8344D /* RecordCell.swift */; };
+		4FC3B7292162E0F900B8344D /* RecordsControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC3B7282162E0F900B8344D /* RecordsControlView.swift */; };
 		79EF9C5E6F2DECB4F1752F87 /* Pods_Timeless.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0D25CDABBF1A46EB4D473B /* Pods_Timeless.framework */; };
 		A535AFF46EDAB080B70014D0 /* Pods_TimelessTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3FAEF2D8E9B4524630FAC2F /* Pods_TimelessTests.framework */; };
 		DF3DBA5A456785DCB75B022F /* Pods_TimelessUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7E9928964F03F6130C6A4A6 /* Pods_TimelessUITests.framework */; };
@@ -73,6 +76,9 @@
 		4FA3D5A92162BC2700452B60 /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
 		4FA3D5AC2162BC5900452B60 /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
 		4FC3B71F2162C32200B8344D /* RecordsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewModel.swift; sourceTree = "<group>"; };
+		4FC3B7212162D01700B8344D /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		4FC3B7242162D77D00B8344D /* RecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
+		4FC3B7282162E0F900B8344D /* RecordsControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsControlView.swift; sourceTree = "<group>"; };
 		5B5B560911349DEDB09FF2D3 /* Pods-TimelessUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimelessUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimelessUITests/Pods-TimelessUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		75C24E5539A93129364EBCC9 /* Pods-TimelessTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimelessTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimelessTests/Pods-TimelessTests.release.xcconfig"; sourceTree = "<group>"; };
 		7F0D25CDABBF1A46EB4D473B /* Pods_Timeless.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Timeless.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				4FA3D5992162546B00452B60 /* ApiService.swift */,
+				4FC3B7212162D01700B8344D /* ApiError.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -251,6 +258,7 @@
 			children = (
 				4FA3D5A72162BC1A00452B60 /* RecordsViewController.swift */,
 				4FC3B71F2162C32200B8344D /* RecordsViewModel.swift */,
+				4FC3B7232162D76500B8344D /* View */,
 			);
 			path = Records;
 			sourceTree = "<group>";
@@ -261,6 +269,15 @@
 				4FA3D5AC2162BC5900452B60 /* FlowCoordinator.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		4FC3B7232162D76500B8344D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4FC3B7282162E0F900B8344D /* RecordsControlView.swift */,
+				4FC3B7242162D77D00B8344D /* RecordCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		516724285AC35FE54B424621 /* Pods */ = {
@@ -517,12 +534,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FA3D54D21621D8400452B60 /* AppDelegate.swift in Sources */,
+				4FC3B7292162E0F900B8344D /* RecordsControlView.swift in Sources */,
 				4FA3D59E216255E200452B60 /* AppError.swift in Sources */,
 				4FA3D5862162503900452B60 /* Project.swift in Sources */,
 				4FA3D594216252F800452B60 /* Record.swift in Sources */,
+				4FC3B7252162D77D00B8344D /* RecordCell.swift in Sources */,
 				4FA3D5922162522600452B60 /* DependencyContainer.swift in Sources */,
 				4FA3D5AA2162BC2700452B60 /* MainFlowCoordinator.swift in Sources */,
 				4FA3D5962162536600452B60 /* RecordsDataModel.swift in Sources */,
+				4FC3B7222162D01700B8344D /* ApiError.swift in Sources */,
 				4FA3D5A52162801200452B60 /* DumbDataStore.swift in Sources */,
 				4FA3D5AD2162BC5900452B60 /* FlowCoordinator.swift in Sources */,
 				4FA3D59A2162546B00452B60 /* ApiService.swift in Sources */,

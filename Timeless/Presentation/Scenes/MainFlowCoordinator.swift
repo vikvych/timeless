@@ -21,6 +21,8 @@ class MainFlowCoordinator: NSObject {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        UIView.appearance().tintColor = .red
+        
         let recordsViewController = navigationController.topViewController as! RecordsViewController
         recordsViewController.viewModel = RecordsViewModel(with: dependencyContainer)
         recordsViewController.flowCoordinator = self
