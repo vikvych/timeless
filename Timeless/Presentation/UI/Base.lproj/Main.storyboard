@@ -22,13 +22,18 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wtr-ea-vka" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Oxg-Xj-fAf" customClass="MainFlowCoordinator" customModule="Timeless" customModuleProvider="target">
+                    <connections>
+                        <outlet property="navigationController" destination="tqx-6i-bbv" id="MRu-tf-eOt"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-1087" y="-944"/>
         </scene>
-        <!--View Controller-->
+        <!--Records View Controller-->
         <scene sceneID="0mL-8T-E6O">
             <objects>
-                <viewController id="Mih-hj-8Dc" sceneMemberID="viewController">
+                <viewController id="Mih-hj-8Dc" customClass="RecordsViewController" customModule="Timeless" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vI2-fa-p87">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
