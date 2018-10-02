@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1gt-xB-ryG">
-                                <rect key="frame" x="116" y="311" width="143" height="45"/>
+                                <rect key="frame" x="116" y="311.5" width="143" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mc5-fQ-lV4">
                                         <rect key="frame" x="0.0" y="0.0" width="73.5" height="39"/>
@@ -27,7 +27,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Less" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysC-j2-rwC">
-                                        <rect key="frame" x="73.5" y="6" width="69.5" height="39"/>
+                                        <rect key="frame" x="73.5" y="5" width="69.5" height="39"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -40,8 +40,8 @@
                                     <constraint firstAttribute="bottom" secondItem="ysC-j2-rwC" secondAttribute="bottom" id="CXV-nq-Zoh"/>
                                     <constraint firstAttribute="trailing" secondItem="ysC-j2-rwC" secondAttribute="trailing" id="Sm7-DA-aT1"/>
                                     <constraint firstItem="mc5-fQ-lV4" firstAttribute="leading" secondItem="1gt-xB-ryG" secondAttribute="leading" id="n02-7e-jZR"/>
-                                    <constraint firstItem="ysC-j2-rwC" firstAttribute="top" secondItem="1gt-xB-ryG" secondAttribute="top" constant="6" id="nDE-aY-uMs"/>
-                                    <constraint firstAttribute="bottom" secondItem="mc5-fQ-lV4" secondAttribute="bottom" constant="6" id="xEb-jA-oJZ"/>
+                                    <constraint firstItem="ysC-j2-rwC" firstAttribute="top" secondItem="1gt-xB-ryG" secondAttribute="top" constant="5" id="nDE-aY-uMs"/>
+                                    <constraint firstAttribute="bottom" secondItem="mc5-fQ-lV4" secondAttribute="bottom" constant="5" id="xEb-jA-oJZ"/>
                                 </constraints>
                             </view>
                         </subviews>

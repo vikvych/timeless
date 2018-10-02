@@ -14,6 +14,13 @@ private enum SegueId: String {
 
 class RecordsViewController: UIViewController, FlowScene {
 
+    @IBOutlet weak var currentTitleLabel: UILabel!
+    @IBOutlet weak var currentProjectLabel: UILabel!
+    @IBOutlet weak var currentDurationLabel: UILabel!
+    @IBOutlet weak var startNewLabel: UILabel!
+    @IBOutlet weak var actionImageView: UIImageView!
+    @IBOutlet weak var controlView: RecordsControlView!
+
     weak var flowCoordinator: MainFlowCoordinator?
     var viewModel: RecordsViewModel!
 
@@ -29,14 +36,20 @@ class RecordsViewController: UIViewController, FlowScene {
             let segueId = SegueId(rawValue: identifier)
             else { return }
         
-//        switch segueId {
-//        case .record:
-//            flowCoordinator?.prepareScene(for: .record(segue: segue, record: Record()))
-//        }
+        switch segueId {
+        case .record:
+            let record = Record.init(id: "", createdAt: Date(), startedAt: Date(), endedAt: nil, title: nil, comment: nil, projectId: nil, project: nil)
+            
+            flowCoordinator?.prepareScene(for: .record(segue: segue, record: record))
+        }
     }
     
     private func bindUI() {
         
     }
 
+    @IBAction func toggleRecord(_ sender: Any) {
+    }
+    
+    
 }

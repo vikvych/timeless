@@ -10,13 +10,15 @@ import UIKit
 
 enum MainFlowSegue {
     case record(segue: UIStoryboardSegue, record: Record)
+    case settings(segue: UIStoryboardSegue)
 }
 
 class MainFlowCoordinator: NSObject {
     
     @IBOutlet weak var navigationController: UINavigationController!
     
-    let dependencyContainer = DependencyContainer.createDefault()
+    private lazy var coverTransition = CoverTransition()
+    private let dependencyContainer = DependencyContainer.createDefault()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,6 +37,12 @@ extension MainFlowCoordinator: FlowCoordinator {
     func prepareScene(for segue: MainFlowSegue) {
         switch segue {
         case let .record(segue, record):
+            let viewController = segue.destination
+            viewController.modalPresentationStyle = .custom
+            viewController.transitioningDelegate = coverTransition
+            break
+        case let .settings(segue):
+            
             break
         }
     }

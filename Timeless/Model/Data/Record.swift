@@ -12,10 +12,10 @@ struct Record: Entity {
     
     let id: ID
     let createdAt: Date
-    var title: String
-    var comment: String
     var startedAt: Date
     var endedAt: Date?
+    var title: String?
+    var comment: String?
     var projectId: ID?
     var project: Project?
 
