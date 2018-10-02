@@ -25,8 +25,8 @@ protocol RecordsLocalDataSource {
     func projects(with relations: Project.Relations) -> SafeSignal<[Project]>
     func recordInfo(for id: ID, relations: Record.Relations) -> SafeSignal<Record?>
     func projectInfo(for id: ID, relations: Project.Relations) -> SafeSignal<Project?>
-    func add(record: Record) -> SafeSignal<Void>
-    func add(project: Project) -> SafeSignal<Void>
+    func add(record: Record)
+    func add(project: Project)
     
 }
 
@@ -48,12 +48,12 @@ struct RecordsDataModel {
         return localDataSource.projects(with: [.records])
     }
     
-    func add(record: Record) -> SafeSignal<Void> {
-        return localDataSource.add(record: record)
+    func add(record: Record) {
+        localDataSource.add(record: record)
     }
     
-    func add(project: Project) -> SafeSignal<Void> {
-        return localDataSource.add(project: project)
+    func add(project: Project) {
+        localDataSource.add(project: project)
     }
     
 }

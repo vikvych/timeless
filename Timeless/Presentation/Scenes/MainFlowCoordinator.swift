@@ -26,8 +26,8 @@ class MainFlowCoordinator: NSObject {
         UIView.appearance().tintColor = .red
         
         let recordsViewController = navigationController.topViewController as! RecordsViewController
-        recordsViewController.viewModel = RecordsViewModel(with: dependencyContainer)
         recordsViewController.flowCoordinator = self
+        recordsViewController.viewModel = RecordsViewModel(with: dependencyContainer)
     }
     
 }
@@ -37,13 +37,17 @@ extension MainFlowCoordinator: FlowCoordinator {
     func prepareScene(for segue: MainFlowSegue) {
         switch segue {
         case let .record(segue, record):
-            let viewController = segue.destination
+            let viewController = segue.destination as! RecordDetailsViewController
             viewController.modalPresentationStyle = .custom
             viewController.transitioningDelegate = coverTransition
-            break
+            viewController.flowCoordinator = self
+            viewController.viewModel = RecordDetailsViewModel(dataModelContainer: dependencyContainer, record: record)
         case let .settings(segue):
-            
-            break
+            let viewController = segue.destination as! SettingsViewController
+            viewController.modalPresentationStyle = .custom
+            viewController.transitioningDelegate = coverTransition
+            viewController.flowCoordinator = self
+            viewController.viewModel = SettingsViewModel(dataModelContainer: dependencyContainer)
         }
     }
     

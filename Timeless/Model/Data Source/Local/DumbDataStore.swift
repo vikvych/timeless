@@ -11,8 +11,8 @@ import ReactiveKit
 
 class DumbDataStore {
     
-    private var records: Property<[Record]>!
-    private var projects: Property<[Project]>!
+    private let records = Property([Record]())
+    private let projects = Property([Project]())
     private var appWillResignActiveObserver: AnyObject?
     
     static let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! + "/file.json"
@@ -22,12 +22,13 @@ class DumbDataStore {
         
         do {
             info = try restore()
+            
+            records.value = info?.records ?? []
+            projects.value = info?.projects ?? []
         } catch {
             print(error)
         }
         
-        records = Property(info?.records ?? [])
-        projects = Property(info?.projects ?? [])
         appWillResignActiveObserver = NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: nil) { [weak self] notification in
             do {
                 try self?.save()
@@ -67,6 +68,7 @@ extension DumbDataStore: RecordsLocalDataSource {
     
     func records(with relations: Record.Relations) -> SafeSignal<[Record]> {
         return resolve(records: records.toSignal(), relations: relations)
+            .map { records in records.sorted { $0.startedAt > $1.startedAt } }
     }
     
     func projects(with relations: Project.Relations) -> SafeSignal<[Project]> {
@@ -74,7 +76,7 @@ extension DumbDataStore: RecordsLocalDataSource {
     }
     
     func recordInfo(for id: ID, relations: Record.Relations) -> SafeSignal<Record?> {
-        let filtered = records.toSignal().map { records -> [Record] in
+        let filtered = records.toSignal().map { (records: [Record]) -> [Record] in
             if let record = records.first(where: { $0.id == id }) {
                 return [record]
             } else {
@@ -86,7 +88,7 @@ extension DumbDataStore: RecordsLocalDataSource {
     }
     
     func projectInfo(for id: ID, relations: Project.Relations) -> SafeSignal<Project?> {
-        let filtered = projects.toSignal().map { projects -> [Project] in
+        let filtered = projects.toSignal().map { (projects: [Project]) -> [Project] in
             if let project = projects.first(where: { $0.id == id }) {
                 return [project]
             } else {
@@ -97,11 +99,11 @@ extension DumbDataStore: RecordsLocalDataSource {
         return resolve(projects: filtered, relations: relations).map { $0.first }
     }
     
-    func add(record: Record) -> SafeSignal<Void> {
+    func add(record: Record) {
         var record = record
         
         if let project = record.project {
-            _ = add(project: project)
+            add(project: project)
             
             record.project = nil
         }
@@ -111,11 +113,9 @@ extension DumbDataStore: RecordsLocalDataSource {
         } else {
             records.value.append(record)
         }
-        
-        return .completed()
     }
     
-    func add(project: Project) -> SafeSignal<Void> {
+    func add(project: Project) {
         var project = project
         
         project.records = nil
@@ -125,8 +125,6 @@ extension DumbDataStore: RecordsLocalDataSource {
         } else {
             projects.value.append(project)
         }
-        
-        return SafeSignal.completed()
     }
     
     private func resolve(records: SafeSignal<[Record]>, relations: Record.Relations) -> SafeSignal<[Record]> {

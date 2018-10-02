@@ -30,10 +30,10 @@
             </objects>
             <point key="canvasLocation" x="-1087" y="-944"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="hTc-sX-BF6">
             <objects>
-                <viewController id="RE5-1w-g4H" sceneMemberID="viewController">
+                <viewController id="RE5-1w-g4H" customClass="SettingsViewController" customModule="Timeless" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xPK-aK-rHn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,8 +76,8 @@
                                                     <color key="textColor" white="0.0" alpha="0.64000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="12:00PM - 1:30PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTL-DC-5SX">
-                                                    <rect key="frame" x="20" y="62" width="112" height="21.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Yesterday 12:00PM - 1:30PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTL-DC-5SX">
+                                                    <rect key="frame" x="20" y="62" width="175.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" white="0.0" alpha="0.32000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -88,13 +88,12 @@
                                                     <color key="textColor" white="0.0" alpha="0.32000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocR-kk-tFv">
+                                                <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocR-kk-tFv">
                                                     <rect key="frame" x="319" y="8" width="48" height="48"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="48" id="mKy-0i-r0x"/>
                                                         <constraint firstAttribute="width" secondItem="ocR-kk-tFv" secondAttribute="height" multiplier="1:1" id="pgj-Gs-hde"/>
                                                     </constraints>
-                                                    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="0.32000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <state key="normal" image="play"/>
                                                 </button>
                                             </subviews>
@@ -150,45 +149,35 @@ Long</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zc9-Ng-uve">
-                                                    <rect key="frame" x="221" y="20" width="86" height="24"/>
+                                                    <rect key="frame" x="217" y="20" width="86" height="24"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                    <color key="textColor" white="0.0" alpha="0.32000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" white="0.0" alpha="0.64000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What are you working on?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yk-20-zwC">
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What are you working on?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yk-20-zwC">
                                                     <rect key="frame" x="75" y="20" width="225" height="24"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     <color key="textColor" white="0.0" alpha="0.32000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stop" translatesAutoresizingMaskIntoConstraints="NO" id="Bme-HU-Anv">
-                                                    <rect key="frame" x="319" y="14" width="36" height="36"/>
-                                                    <gestureRecognizers/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="36" id="Lw9-yU-uYR"/>
-                                                        <constraint firstAttribute="width" secondItem="Bme-HU-Anv" secondAttribute="height" multiplier="1:1" id="Mb5-nO-H6L"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPd-ag-CcF">
-                                                    <rect key="frame" x="305" y="0.0" width="64" height="64"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPd-ag-CcF" customClass="ActionButton" customModule="Timeless" customModuleProvider="target">
+                                                    <rect key="frame" x="307" y="0.0" width="64" height="64"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="aPd-ag-CcF" secondAttribute="height" multiplier="1:1" id="VAJ-1p-8bn"/>
                                                     </constraints>
-                                                    <connections>
-                                                        <action selector="toggleRecord:" destination="Mih-hj-8Dc" eventType="touchUpInside" id="bEB-s6-J4j"/>
-                                                    </connections>
+                                                    <state key="normal" image="play"/>
+                                                    <state key="selected" image="stop"/>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstItem="9yk-20-zwC" firstAttribute="centerY" secondItem="QRL-fZ-a1K" secondAttribute="centerY" id="0Dw-jH-MzW"/>
-                                                <constraint firstAttribute="trailing" secondItem="Bme-HU-Anv" secondAttribute="trailing" constant="20" id="4o9-La-ZyQ"/>
-                                                <constraint firstItem="Bme-HU-Anv" firstAttribute="centerY" secondItem="QRL-fZ-a1K" secondAttribute="centerY" id="Csm-C0-noO"/>
+                                                <constraint firstItem="aPd-ag-CcF" firstAttribute="leading" secondItem="Zc9-Ng-uve" secondAttribute="trailing" constant="4" id="0wR-jG-5vj"/>
                                                 <constraint firstItem="Zc9-Ng-uve" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="h9J-8X-sYS" secondAttribute="trailing" constant="12" id="IXY-xq-i28"/>
                                                 <constraint firstItem="aPd-ag-CcF" firstAttribute="top" secondItem="QRL-fZ-a1K" secondAttribute="top" id="Ic5-RQ-dgb"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="d2q-rk-dph" secondAttribute="bottom" constant="8" id="LIA-tI-qFq"/>
-                                                <constraint firstItem="Bme-HU-Anv" firstAttribute="leading" secondItem="Zc9-Ng-uve" secondAttribute="trailing" constant="12" id="TLf-g5-QZ9"/>
+                                                <constraint firstAttribute="trailing" secondItem="aPd-ag-CcF" secondAttribute="trailing" constant="4" id="Vef-MA-PwW"/>
                                                 <constraint firstItem="d2q-rk-dph" firstAttribute="leading" secondItem="QRL-fZ-a1K" secondAttribute="leading" constant="20" id="aBo-X9-4zM"/>
                                                 <constraint firstItem="9yk-20-zwC" firstAttribute="centerX" secondItem="QRL-fZ-a1K" secondAttribute="centerX" id="aah-8X-uG6"/>
                                                 <constraint firstItem="d2q-rk-dph" firstAttribute="top" secondItem="h9J-8X-sYS" secondAttribute="bottom" constant="4" id="bgk-i8-gm0"/>
@@ -198,7 +187,6 @@ Long</string>
                                                 <constraint firstItem="Zc9-Ng-uve" firstAttribute="centerY" secondItem="QRL-fZ-a1K" secondAttribute="centerY" id="kJ8-ap-sGg"/>
                                                 <constraint firstItem="h9J-8X-sYS" firstAttribute="top" secondItem="QRL-fZ-a1K" secondAttribute="top" constant="8" id="ll0-5l-aG8"/>
                                                 <constraint firstItem="Zc9-Ng-uve" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d2q-rk-dph" secondAttribute="trailing" constant="12" id="pBd-Qc-blh"/>
-                                                <constraint firstItem="Bme-HU-Anv" firstAttribute="centerX" secondItem="aPd-ag-CcF" secondAttribute="centerX" id="wYJ-KI-Msp"/>
                                             </constraints>
                                             <connections>
                                                 <outletCollection property="gestureRecognizers" destination="nA9-5g-1zS" appends="YES" id="vpG-Yw-ugt"/>
@@ -235,12 +223,13 @@ Long</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="actionImageView" destination="Bme-HU-Anv" id="vXC-XU-Ris"/>
+                        <outlet property="actionButton" destination="aPd-ag-CcF" id="rH5-LX-p1I"/>
                         <outlet property="controlView" destination="QRL-fZ-a1K" id="R3p-jS-FYk"/>
                         <outlet property="currentDurationLabel" destination="Zc9-Ng-uve" id="Oti-W4-ZZo"/>
                         <outlet property="currentProjectLabel" destination="d2q-rk-dph" id="BxT-PC-ALc"/>
                         <outlet property="currentTitleLabel" destination="h9J-8X-sYS" id="v6o-UB-Qir"/>
                         <outlet property="startNewLabel" destination="9yk-20-zwC" id="I6Q-t0-5VW"/>
+                        <outlet property="tableView" destination="Dhm-lA-wNT" id="EgF-8G-tpX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ecF-7f-Hcr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -252,10 +241,10 @@ Long</string>
             </objects>
             <point key="canvasLocation" x="-266.39999999999998" y="-944.07796101949032"/>
         </scene>
-        <!--View Controller-->
+        <!--Record Details View Controller-->
         <scene sceneID="skQ-uQ-15U">
             <objects>
-                <viewController id="2bT-vw-qHc" sceneMemberID="viewController">
+                <viewController id="2bT-vw-qHc" customClass="RecordDetailsViewController" customModule="Timeless" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Enk-In-dBw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -274,6 +263,6 @@ Long</string>
         <image name="stop" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FuM-6N-YPe"/>
+        <segue reference="wud-qu-jE4"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -10,6 +10,8 @@ import UIKit
 
 class RecordCell: UITableViewCell {
 
+    static let identifier = String(describing: RecordCell.self)
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var projectLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!

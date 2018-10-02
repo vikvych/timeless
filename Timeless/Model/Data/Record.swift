@@ -30,3 +30,18 @@ extension Record {
     }
     
 }
+
+extension Record {
+    
+    init(title: String? = nil, comment: String? = nil, project: Project? = nil) {
+        self.init(id: UUID().uuidString,
+                  createdAt: Date(),
+                  startedAt: Date(),
+                  endedAt: nil,
+                  title: title,
+                  comment: comment,
+                  projectId: project?.id,
+                  project: project)
+    }
+    
+}
