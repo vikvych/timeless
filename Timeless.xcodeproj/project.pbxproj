@@ -11,6 +11,7 @@
 		4F2256162163C0A6008A6248 /* RecordDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2256152163C0A6008A6248 /* RecordDetailsViewModel.swift */; };
 		4F2256182163C0AF008A6248 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2256172163C0AF008A6248 /* SettingsViewController.swift */; };
 		4F22561A2163C0B8008A6248 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2256192163C0B8008A6248 /* SettingsViewModel.swift */; };
+		4F22561D2163F098008A6248 /* Record+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F22561C2163F098008A6248 /* Record+Extensions.swift */; };
 		4F4EE0172162FABB0033A3D6 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EE0162162FABB0033A3D6 /* Strings.swift */; };
 		4F89B0622163A1A100F7C1F6 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F89B0612163A1A100F7C1F6 /* ActionButton.swift */; };
 		4FA3D54D21621D8400452B60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA3D54C21621D8400452B60 /* AppDelegate.swift */; };
@@ -63,6 +64,7 @@
 		4F2256152163C0A6008A6248 /* RecordDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailsViewModel.swift; sourceTree = "<group>"; };
 		4F2256172163C0AF008A6248 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4F2256192163C0B8008A6248 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		4F22561C2163F098008A6248 /* Record+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Record+Extensions.swift"; sourceTree = "<group>"; };
 		4F4EE0162162FABB0033A3D6 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		4F89B0612163A1A100F7C1F6 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		4FA3D54921621D8400452B60 /* Timeless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timeless.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +151,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		4F22561B2163F086008A6248 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4F22561C2163F098008A6248 /* Record+Extensions.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		4FA3D54021621D8400452B60 = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +226,7 @@
 				4FA3D55521621D8600452B60 /* Assets.xcassets */,
 				4FA3D58221621EBD00452B60 /* UI */,
 				4FA3D58121621EB700452B60 /* Scenes */,
+				4F22561B2163F086008A6248 /* Data */,
 				4FC3B72A2162F00700B8344D /* Common */,
 				4FA3D5AB2162BC4E00452B60 /* Base */,
 			);
@@ -590,6 +601,7 @@
 				4FC3B7252162D77D00B8344D /* RecordCell.swift in Sources */,
 				4FA3D5922162522600452B60 /* DependencyContainer.swift in Sources */,
 				4FA3D5AA2162BC2700452B60 /* MainFlowCoordinator.swift in Sources */,
+				4F22561D2163F098008A6248 /* Record+Extensions.swift in Sources */,
 				4FA3D5962162536600452B60 /* RecordsDataModel.swift in Sources */,
 				4F89B0622163A1A100F7C1F6 /* ActionButton.swift in Sources */,
 				4F2256182163C0AF008A6248 /* SettingsViewController.swift in Sources */,

@@ -17,7 +17,7 @@ class MainFlowCoordinator: NSObject {
     
     @IBOutlet weak var navigationController: UINavigationController!
     
-    private lazy var coverTransition = CoverTransition()
+    private lazy var coverTransition = CoverTransition(headerColor: .white)
     private let dependencyContainer = DependencyContainer.createDefault()
     
     override func awakeFromNib() {

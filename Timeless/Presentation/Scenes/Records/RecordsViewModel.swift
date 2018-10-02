@@ -51,6 +51,10 @@ struct RecordsViewModel {
             .lazyMap(recordInfo)
     }
     
+    func isRecording() -> SafeSignal<Bool> {
+        return current.map { $0?.isRecording ?? false }
+    }
+
     func isCurrentRecordHidden() -> SafeSignal<Bool> {
         return current.map { $0 == nil }.distinct()
     }
@@ -61,32 +65,13 @@ struct RecordsViewModel {
     
     func timer() -> SafeSignal<String> {
         return current.ignoreNil()
-            .combineLatest(with: SafeSignal<Void>.interval(1.0)) { record, _ in record }
-            .map { record in
-                return self.timerString(for: record)
-        }
-    }
-    
-    func timerString(for record: Record) -> String {
-        let timeInterval = (record.endedAt ?? Date()).timeIntervalSinceReferenceDate - record.startedAt.timeIntervalSinceReferenceDate
-        
-        let seconds = Int(timeInterval) % 60
-        let minutes = (Int(timeInterval) / 60) % 60
-        let hours = Int(timeInterval) / 3600
-        
-        return String(format: "%d:%02d:%02d", hours, minutes, seconds)
-    }
-    
-    func dateString(for record: Record) -> String {
-        let date = dateFormatter.string(from: record.startedAt)
-        let from = timeFormatter.string(from: record.startedAt)
-        let till = timeFormatter.string(from: record.endedAt ?? Date())
-        
-        return "\(date) \(from) - \(till)"
-    }
-    
-    func isRecording() -> SafeSignal<Bool> {
-        return current.map { nil != $0 && nil == $0?.endedAt }
+            .flatMapLatest { record -> SafeSignal<String> in
+                if record.isRecording {
+                    return SafeSignal<Void>.interval(1.0).map { _ in record.durationString }
+                } else {
+                    return SafeSignal.just(record.durationString)
+                }
+            }
     }
     
     func start() {
@@ -121,9 +106,17 @@ struct RecordsViewModel {
                           title: record.title ?? Strings.Records.titlePlaceholder,
                           projectName: record.project?.name ?? Strings.Records.projectPlaceholder,
                           dateString: dateString(for: record),
-                          durationString: timerString(for: record),
+                          durationString: record.durationString,
                           isTitlePlaceholder: nil == record.title,
                           isProjectPlaceholder: nil == record.project?.name)
+    }
+    
+    private func dateString(for record: Record) -> String {
+        let date = dateFormatter.string(from: record.startedAt)
+        let from = timeFormatter.string(from: record.startedAt)
+        let till = timeFormatter.string(from: record.endedAt ?? Date())
+        
+        return "\(date) \(from) - \(till)"
     }
     
 }

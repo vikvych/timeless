@@ -27,6 +27,7 @@ class RecordsViewController: UIViewController, FlowScene {
     @IBOutlet weak var actionButton: ActionButton!
     
     weak var flowCoordinator: MainFlowCoordinator?
+    
     var viewModel: RecordsViewModel!
 
     override func viewDidLoad() {
@@ -51,6 +52,8 @@ class RecordsViewController: UIViewController, FlowScene {
             flowCoordinator?.prepareScene(for: .settings(segue: segue))
         }
     }
+    
+    @IBAction func unwindToRecords(_ segue: UIStoryboardSegue) {}
     
     private func bindUI() {
         viewModel.records()
