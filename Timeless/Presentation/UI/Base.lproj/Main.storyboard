@@ -182,7 +182,7 @@ Long</string>
                                                     <state key="selected" image="stop"/>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.050000000000000003" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstItem="9yk-20-zwC" firstAttribute="centerY" secondItem="QRL-fZ-a1K" secondAttribute="centerY" id="0Dw-jH-MzW"/>
@@ -207,6 +207,7 @@ Long</string>
                                             </connections>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.050000000000000003" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="QRL-fZ-a1K" secondAttribute="trailing" id="4J2-Gg-dT6"/>
                                         <constraint firstItem="QRL-fZ-a1K" firstAttribute="leading" secondItem="Y3R-ui-MbP" secondAttribute="leading" id="GKB-iy-3sC"/>
@@ -372,7 +373,6 @@ Long</string>
                                                     <constraint firstAttribute="height" constant="36" id="hsd-PC-eW0"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <state key="normal" title="Wednesday, Sep 20th, 13:01 PM"/>
                                             </button>
                                             <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Tzh-d8-nLD">
                                                 <rect key="frame" x="0.0" y="202" width="335" height="0.0"/>
@@ -400,7 +400,6 @@ Long</string>
                                                     <constraint firstAttribute="height" constant="36" id="krF-sX-5dw"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <state key="normal" title="Wednesday, Sep 20th, 14:01 PM"/>
                                             </button>
                                             <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4TU-Vi-fOZ">
                                                 <rect key="frame" x="0.0" y="252.5" width="335" height="0.0"/>
