@@ -13,7 +13,7 @@ struct Project: Entity {
     let id: ID
     let createdAt: Date
     var name: String
-    var records: [Record]?
+    var records: [Record]
     
 }
 
@@ -23,6 +23,17 @@ extension Project {
         let rawValue: Int
         
         static let records = Relations(rawValue: 1 << 0)
+    }
+    
+}
+
+extension Project {
+    
+    init(name: String) {
+        self.name = name
+        id = UUID().uuidString
+        createdAt = Date()
+        records = []
     }
     
 }

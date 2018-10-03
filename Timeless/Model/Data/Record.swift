@@ -44,4 +44,15 @@ extension Record {
                   project: project)
     }
     
+    func copy(startedAt: Date? = nil, endedAt: Date? = nil, title: String? = nil, comment: String? = nil) -> Record {
+        return Record(id: id,
+                      createdAt: createdAt,
+                      startedAt: startedAt ?? self.startedAt,
+                      endedAt: endedAt ?? self.endedAt,
+                      title: title ?? self.title,
+                      comment: comment ?? self.comment,
+                      projectId: project?.id,
+                      project: project)
+    }
+    
 }

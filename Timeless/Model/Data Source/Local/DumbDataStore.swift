@@ -118,7 +118,7 @@ extension DumbDataStore: RecordsLocalDataSource {
     func add(project: Project) {
         var project = project
         
-        project.records = nil
+        project.records = []
         
         if let index = projects.value.map({ $0.id }).firstIndex(of: project.id) {
             projects.value.replaceSubrange(index...index, with: [project])
@@ -171,6 +171,45 @@ extension DumbDataStore: RecordsLocalDataSource {
         }
         
         return result
+    }
+    
+    func generateSampleData() {
+        let recordTitles = ["Simple task",
+                            "Super feature",
+                            "Cool design",
+                            "Complex issue",
+                            "Awesome view",
+                            "Super function"]
+        
+        let projectNames = ["My project",
+                            "Timeless",
+                            "Awesome App",
+                            "Super Game"]
+        
+        let timeIntervalStep: UInt32 = 60 * 60
+        let projects = projectNames.map { Project(name: $0) }
+        let records = Array(0..<100).map { (index: Int) -> Record in
+            let startedAt = Date().addingTimeInterval(-TimeInterval(UInt32(index) * timeIntervalStep + arc4random_uniform(timeIntervalStep)))
+            let endedAt = startedAt.addingTimeInterval(TimeInterval(arc4random_uniform(timeIntervalStep)))
+            var projectId: ID? = nil
+            let projectIndex = Int(arc4random_uniform(UInt32(projects.count + 1)))
+            
+            if projectIndex < projects.count {
+                projectId = projects[projectIndex].id
+            }
+            
+            return Record(id: UUID().uuidString,
+                   createdAt: Date(),
+                   startedAt: startedAt,
+                   endedAt: endedAt,
+                   title: recordTitles[Int(arc4random_uniform(UInt32(recordTitles.count)))],
+                   comment: nil,
+                   projectId: projectId,
+                   project: nil)
+        }
+        
+        self.projects.value = projects
+        self.records.value = records
     }
     
 }

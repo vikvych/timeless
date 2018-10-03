@@ -8,6 +8,7 @@
 
 import UIKit
 import ReactiveKit
+import Bond
 
 private let placeholderAlpha: CGFloat = 0.4
 
@@ -29,12 +30,25 @@ class RecordsViewController: UIViewController, FlowScene {
     weak var flowCoordinator: MainFlowCoordinator?
     
     var viewModel: RecordsViewModel!
+    
+    private var selectedRecord: Record? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         actionButton.setImageScaleToParent(0.6)
         bindUI()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        var insets = tableView.contentInset
+        
+        insets.bottom = UIScreen.main.bounds.height - controlView.convert(controlView.bounds, to: view.window).minY
+        
+        tableView.contentInset = insets
+        tableView.scrollIndicatorInsets = insets
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,8 +59,9 @@ class RecordsViewController: UIViewController, FlowScene {
         
         switch segueId {
         case .record:
-            let record = Record.init(id: "", createdAt: Date(), startedAt: Date(), endedAt: nil, title: nil, comment: nil, projectId: nil, project: nil)
+            let record = selectedRecord ?? viewModel.currentRecordInstance ?? viewModel.createNew()
             
+            selectedRecord = nil
             flowCoordinator?.prepareScene(for: .record(segue: segue, record: record))
         case .settings:
             flowCoordinator?.prepareScene(for: .settings(segue: segue))
@@ -56,7 +71,7 @@ class RecordsViewController: UIViewController, FlowScene {
     @IBAction func unwindToRecords(_ segue: UIStoryboardSegue) {}
     
     private func bindUI() {
-        viewModel.records()
+        viewModel.recordsInfo()
             .bind(to: tableView) { records, indexPath, tableView -> UITableViewCell in
                 let cell = tableView.dequeueReusableCell(withIdentifier: RecordCell.identifier, for: indexPath) as! RecordCell
                 let record = records[indexPath.row]
@@ -99,6 +114,15 @@ class RecordsViewController: UIViewController, FlowScene {
                 me.actionButton.isSelected = isRecording
         }
         
+        tableView.reactive.selectedRowIndexPath
+            .with(latestFrom: viewModel.recordsInfo()) { (indexPath: IndexPath, event: ObservableArrayEvent) -> Record in
+                return event.source.array[indexPath.row].record
+            }
+            .bind(to: self) { me, record in
+                me.selectedRecord = record
+                me.performSegue(withIdentifier: SegueId.record.rawValue, sender: me)
+        }
+
         actionButton.reactive.tap
             .with(latestFrom: viewModel.isRecording()) { $1 }
             .bind(to: self) { me, isRecording in

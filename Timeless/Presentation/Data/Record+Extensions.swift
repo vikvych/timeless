@@ -14,6 +14,14 @@ extension Record {
         return nil == endedAt
     }
     
+    var displayTitle: String {
+        return (title?.isEmpty ?? true) ? Strings.Records.titlePlaceholder : title!
+    }
+    
+    var displayProjectName: String {
+        return (project?.name.isEmpty ?? true) ? Strings.Records.projectPlaceholder : project!.name
+    }
+    
     var durationString: String {
         let timeInterval = (endedAt ?? Date()).timeIntervalSinceReferenceDate - startedAt.timeIntervalSinceReferenceDate
         
@@ -23,5 +31,5 @@ extension Record {
         
         return String(format: "%d:%02d:%02d", hours, minutes, seconds)
     }
-    
+        
 }

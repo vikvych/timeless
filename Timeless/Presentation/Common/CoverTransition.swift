@@ -88,7 +88,7 @@ class CoverTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let backViewTransform = CGAffineTransform(translationX: 0.0, y: backViewTranslationY).scaledBy(x: dismissedScale, y: dismissedScale)
         
         if presentAnimation {
-            guard let snapshot = fromView.snapshotView(afterScreenUpdates: false) else { return assert(false, "Failed to create snapshot") }
+            guard let snapshot = fromView.snapshotView(afterScreenUpdates: true) else { return assert(false, "Failed to create snapshot") }
             
             snapshot.layer.cornerRadius = cornerRadius
             snapshot.layer.masksToBounds = true

@@ -1,23 +1,19 @@
 //
-//  SettingsViewModel.swift
+//  ProjectsViewModel.swift
 //  Timeless
 //
-//  Created by Ivan Tkachenko on 10/2/18.
+//  Created by Ivan Tkachenko on 10/3/18.
 //  Copyright © 2018 Ivan Tkachenko. All rights reserved.
 //
 
 import Foundation
 
-struct SettingsViewModel {
+struct ProjectsViewModel {
     
     private let dataModelContainer: RecordsDataModelContainer
-
+    
     init(dataModelContainer: RecordsDataModelContainer) {
         self.dataModelContainer = dataModelContainer
-    }
-    
-    func generateSampleData() {
-        dataModelContainer.recordsDataModel.generateSampleData()
     }
     
 }

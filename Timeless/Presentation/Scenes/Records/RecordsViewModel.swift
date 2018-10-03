@@ -40,11 +40,15 @@ struct RecordsViewModel {
         return formatter
     }()
     
+    var currentRecordInstance: Record? {
+        return current.value
+    }
+    
     init(with dataModelContainer: RecordsDataModelContainer) {
         self.dataModelContainer = dataModelContainer
     }
     
-    func records() -> SafeSignal<ObservableArrayEvent<RecordInfo>> {
+    func recordsInfo() -> SafeSignal<ObservableArrayEvent<RecordInfo>> {
         return dataModelContainer.recordsDataModel.records()
             .map { records in records.filter { nil != $0.endedAt } }
             .diff()
@@ -60,14 +64,39 @@ struct RecordsViewModel {
     }
 
     func currentRecord() -> SafeSignal<RecordInfo> {
-        return current.ignoreNil().map(recordInfo)
+        let updates = dataModelContainer.recordsDataModel.records()
+            .with(latestFrom: current.toSignal()) { records, current -> Void in
+                guard let current = current else { return }
+                
+                let recordsIds = records.map { $0.id }
+                
+                if let index = recordsIds.index(of: current.id) {
+                    let updated = records[index]
+                    
+                    if updated != current {
+                        if updated.isRecording {
+                            self.current.value = updated
+                        } else {
+                            self.current.value = nil
+                        }
+                    }
+                } else {
+                    self.current.value = nil
+                }
+        }
+        
+        return current.ignoreNil()
+            .combineLatest(with: updates) { record, _ in record }
+            .map(recordInfo)
     }
     
     func timer() -> SafeSignal<String> {
         return current.ignoreNil()
             .flatMapLatest { record -> SafeSignal<String> in
                 if record.isRecording {
-                    return SafeSignal<Void>.interval(1.0).map { _ in record.durationString }
+                    return SafeSignal<Void>.interval(1.0)
+                        .map { _ in record.durationString }
+                        .start(with: record.durationString)
                 } else {
                     return SafeSignal.just(record.durationString)
                 }
@@ -84,7 +113,7 @@ struct RecordsViewModel {
     }
     
     func stop() {
-        guard var record = current.value else { return }
+        guard var record = current.value, record.isRecording else { return }
         
         record.endedAt = Date()
         
@@ -92,31 +121,30 @@ struct RecordsViewModel {
         current.value = nil
     }
     
-    func duplicate(record: Record) {
+    func createNew(from duplicate: Record? = nil) -> Record {
         stop()
         
-        let duplicate = Record(title: record.title, comment: record.comment, project: record.project)
+        let record = Record()
         
-        dataModelContainer.recordsDataModel.add(record: duplicate)
-        current.value = duplicate
+        dataModelContainer.recordsDataModel.add(record: record)
+        current.value = record
+        
+        return record
     }
     
     private func recordInfo(with record: Record) -> RecordInfo {
-        return RecordInfo(record: record,
-                          title: record.title ?? Strings.Records.titlePlaceholder,
-                          projectName: record.project?.name ?? Strings.Records.projectPlaceholder,
-                          dateString: dateString(for: record),
-                          durationString: record.durationString,
-                          isTitlePlaceholder: nil == record.title,
-                          isProjectPlaceholder: nil == record.project?.name)
-    }
-    
-    private func dateString(for record: Record) -> String {
         let date = dateFormatter.string(from: record.startedAt)
         let from = timeFormatter.string(from: record.startedAt)
         let till = timeFormatter.string(from: record.endedAt ?? Date())
-        
-        return "\(date) \(from) - \(till)"
+        let dateString = "\(date) \(from) - \(till)"
+
+        return RecordInfo(record: record,
+                          title: record.displayTitle,
+                          projectName: record.displayProjectName,
+                          dateString: dateString,
+                          durationString: record.durationString,
+                          isTitlePlaceholder: nil == record.title,
+                          isProjectPlaceholder: nil == record.project?.name)
     }
     
 }

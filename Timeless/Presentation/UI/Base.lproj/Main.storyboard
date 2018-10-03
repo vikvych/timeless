@@ -30,22 +30,36 @@
             </objects>
             <point key="canvasLocation" x="-1087" y="-944"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="hTc-sX-BF6">
             <objects>
                 <viewController id="RE5-1w-g4H" customClass="SettingsViewController" customModule="Timeless" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xPK-aK-rHn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24E-f0-HkQ">
+                                <rect key="frame" x="110" y="318.5" width="155" height="30"/>
+                                <state key="normal" title="Generate Sample Data"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="24E-f0-HkQ" firstAttribute="centerX" secondItem="xPK-aK-rHn" secondAttribute="centerX" id="Tux-dJ-DLa"/>
+                            <constraint firstItem="24E-f0-HkQ" firstAttribute="centerY" secondItem="xPK-aK-rHn" secondAttribute="centerY" id="X4o-pJ-mBU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="idJ-pl-Yja"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Settings" id="kue-k9-YBo"/>
+                    <connections>
+                        <outlet property="generateButton" destination="24E-f0-HkQ" id="nQM-ZN-XvJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fSe-m2-ZEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-266" y="-1679"/>
         </scene>
-        <!--Records View Controller-->
+        <!--Time Records-->
         <scene sceneID="0mL-8T-E6O">
             <objects>
                 <viewController id="Mih-hj-8Dc" customClass="RecordsViewController" customModule="Timeless" customModuleProvider="target" sceneMemberID="viewController">
@@ -120,7 +134,6 @@
                                             <outlet property="projectLabel" destination="q1N-Oi-Ix4" id="mNo-fL-n67"/>
                                             <outlet property="timeLabel" destination="DTL-DC-5SX" id="Kvt-D5-cNl"/>
                                             <outlet property="titleLabel" destination="0JH-pu-VIP" id="6dP-R9-Abh"/>
-                                            <segue destination="2bT-vw-qHc" kind="presentation" identifier="record" id="FuM-6N-YPe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -216,10 +229,10 @@ Long</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IzM-TF-ecE"/>
                     </view>
-                    <navigationItem key="navigationItem" id="uPa-UZ-Z63">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="settings" id="0g6-nb-fHa">
+                    <navigationItem key="navigationItem" title="Time Records" id="uPa-UZ-Z63">
+                        <barButtonItem key="rightBarButtonItem" image="settings" id="Zfj-CV-f2T">
                             <connections>
-                                <segue destination="RE5-1w-g4H" kind="presentation" identifier="settings" id="bzh-Ei-xLk"/>
+                                <segue destination="RE5-1w-g4H" kind="show" identifier="settings" id="JPP-Ki-Ual"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -242,6 +255,34 @@ Long</string>
             </objects>
             <point key="canvasLocation" x="-266.39999999999998" y="-944.07796101949032"/>
         </scene>
+        <!--Projects-->
+        <scene sceneID="PY0-z5-UZf">
+            <objects>
+                <viewController id="Ud4-Wa-l3F" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="din-f8-bpj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="naC-dk-6Bk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="naC-dk-6Bk" secondAttribute="bottom" id="Qvh-vm-P39"/>
+                            <constraint firstAttribute="trailing" secondItem="naC-dk-6Bk" secondAttribute="trailing" id="WYJ-zN-aY6"/>
+                            <constraint firstItem="naC-dk-6Bk" firstAttribute="top" secondItem="din-f8-bpj" secondAttribute="top" id="amM-vY-rMa"/>
+                            <constraint firstItem="naC-dk-6Bk" firstAttribute="leading" secondItem="din-f8-bpj" secondAttribute="leading" id="lC3-hA-lq6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2b7-48-KcI"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Projects" id="x5V-Ch-Hmm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EKk-Ta-CCe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="543" y="-944"/>
+        </scene>
         <!--Record Details View Controller-->
         <scene sceneID="skQ-uQ-15U">
             <objects>
@@ -262,14 +303,17 @@ Long</string>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What are you working on?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lhk-Wt-pCw">
+                                            <textField opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What are you working on?" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lhk-Wt-pCw">
                                                 <rect key="frame" x="0.0" y="14.5" width="335" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="mJh-4t-2Nx"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="2bT-vw-qHc" id="1Cd-M7-iJL"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcS-jo-v4o">
                                                 <rect key="frame" x="0.0" y="50.5" width="335" height="14.5"/>
@@ -280,14 +324,17 @@ Long</string>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="nHl-4s-0ow">
                                                 <rect key="frame" x="0.0" y="65" width="335" height="36"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Find project or add a new one" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TMF-2x-OPc">
+                                                    <textField opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Find project or add a new one" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TMF-2x-OPc">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="36"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="36" id="Ago-x1-BZ3"/>
                                                         </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="2bT-vw-qHc" id="ojd-HI-di9"/>
+                                                        </connections>
                                                     </textField>
                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ry-7M-5cp">
                                                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="36"/>
@@ -301,92 +348,114 @@ Long</string>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add more details" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6rf-6U-dn6">
+                                            <textField opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add more details" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6rf-6U-dn6">
                                                 <rect key="frame" x="0.0" y="115.5" width="335" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="TAT-Ya-rMf"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="2bT-vw-qHc" id="xf5-Vl-C05"/>
+                                                </connections>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTz-IW-VR3">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Started at:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8NY-Pn-yda">
                                                 <rect key="frame" x="0.0" y="151.5" width="335" height="14.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6my-f4-nzz">
+                                                <rect key="frame" x="0.0" y="166" width="335" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="hsd-PC-eW0"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <state key="normal" title="Wednesday, Sep 20th, 13:01 PM"/>
+                                            </button>
+                                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Tzh-d8-nLD">
+                                                <rect key="frame" x="0.0" y="202" width="335" height="0.0"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="560196485.77519703">
+                                                    <!--2018-10-02 18:08:05 +0000-->
+                                                </date>
+                                            </datePicker>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXr-tD-rqv">
+                                                <rect key="frame" x="0.0" y="202" width="335" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="uzS-Ue-7R3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <state key="normal" title="Update"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ended at:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJD-fL-Ufc">
+                                                <rect key="frame" x="0.0" y="202" width="335" height="14.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ylb-JE-UBz">
-                                                <rect key="frame" x="0.0" y="166" width="335" height="36"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAq-iU-tTc">
+                                                <rect key="frame" x="0.0" y="216.5" width="335" height="36"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="36" id="BQA-Zc-hKt"/>
+                                                    <constraint firstAttribute="height" constant="36" id="krF-sX-5dw"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <state key="normal" title="Wednesday, September 23th"/>
+                                                <state key="normal" title="Wednesday, Sep 20th, 14:01 PM"/>
                                             </button>
-                                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="3uI-UT-Efv">
-                                                <rect key="frame" x="0.0" y="202" width="335" height="0.0"/>
-                                                <date key="date" timeIntervalSinceReferenceDate="560196455.66782701">
-                                                    <!--2018-10-02 18:07:35 +0000-->
+                                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4TU-Vi-fOZ">
+                                                <rect key="frame" x="0.0" y="252.5" width="335" height="0.0"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="560196501.70358098">
+                                                    <!--2018-10-02 18:08:21 +0000-->
                                                 </date>
                                             </datePicker>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="w1u-Xp-i6z">
-                                                <rect key="frame" x="0.0" y="202" width="335" height="50.5"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gwy-Mm-add">
-                                                        <rect key="frame" x="0.0" y="0.0" width="161.5" height="50.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Started at:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8NY-Pn-yda">
-                                                                <rect key="frame" x="0.0" y="0.0" width="161.5" height="14.5"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6my-f4-nzz">
-                                                                <rect key="frame" x="0.0" y="14.5" width="161.5" height="36"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="36" id="hsd-PC-eW0"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                <state key="normal" title="12:01 PM"/>
-                                                            </button>
-                                                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Tzh-d8-nLD">
-                                                                <rect key="frame" x="0.0" y="50.5" width="161.5" height="0.0"/>
-                                                                <date key="date" timeIntervalSinceReferenceDate="560196485.77519703">
-                                                                    <!--2018-10-02 18:08:05 +0000-->
-                                                                </date>
-                                                            </datePicker>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cms-zf-Vyb">
-                                                        <rect key="frame" x="173.5" y="0.0" width="161.5" height="50.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ended at:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJD-fL-Ufc">
-                                                                <rect key="frame" x="0.0" y="0.0" width="161.5" height="14.5"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAq-iU-tTc">
-                                                                <rect key="frame" x="0.0" y="14.5" width="161.5" height="36"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="36" id="krF-sX-5dw"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                <state key="normal" title="13:01 PM"/>
-                                                            </button>
-                                                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4TU-Vi-fOZ">
-                                                                <rect key="frame" x="0.0" y="50.5" width="161.5" height="0.0"/>
-                                                                <date key="date" timeIntervalSinceReferenceDate="560196501.70358098">
-                                                                    <!--2018-10-02 18:08:21 +0000-->
-                                                                </date>
-                                                            </datePicker>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                            </stackView>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vjx-vd-tI7">
+                                                <rect key="frame" x="0.0" y="252.5" width="335" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="88J-pZ-3pC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <state key="normal" title="Update"/>
+                                            </button>
                                         </subviews>
                                     </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0N-kP-zJH">
+                                        <rect key="frame" x="20" y="145" width="335" height="0.0"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GV9-YS-jeL">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="0.0"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" id="uNz-yR-X1W"/>
+                                                </constraints>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="ZPD-Nu-LeU" style="IBUITableViewCellStyleDefault" id="HHY-Ek-Oxx">
+                                                        <rect key="frame" x="0.0" y="28" width="335" height="44"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HHY-Ek-Oxx" id="MbX-ec-soG">
+                                                            <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZPD-Nu-LeU">
+                                                                    <rect key="frame" x="15" y="0.0" width="305" height="43.5"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </tableViewCellContentView>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="GV9-YS-jeL" secondAttribute="bottom" id="4Bg-Qj-cCM"/>
+                                            <constraint firstItem="GV9-YS-jeL" firstAttribute="leading" secondItem="p0N-kP-zJH" secondAttribute="leading" id="MmF-Uv-fbu"/>
+                                            <constraint firstAttribute="trailing" secondItem="GV9-YS-jeL" secondAttribute="trailing" id="UWr-j0-VUt"/>
+                                            <constraint firstItem="GV9-YS-jeL" firstAttribute="top" secondItem="p0N-kP-zJH" secondAttribute="top" id="n3Z-VK-ZEr"/>
+                                        </constraints>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhU-uK-aCH">
                                         <rect key="frame" x="132" y="304.5" width="111" height="31.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
@@ -399,8 +468,7 @@ Long</string>
                                             <constraint firstAttribute="width" constant="64" id="1jT-N4-Fux"/>
                                             <constraint firstAttribute="width" secondItem="Mdg-Sd-OIS" secondAttribute="height" multiplier="1:1" id="U6g-0x-A5Q"/>
                                         </constraints>
-                                        <state key="normal" image="play"/>
-                                        <state key="selected" image="stop"/>
+                                        <state key="normal" image="stop"/>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -410,7 +478,10 @@ Long</string>
                                     <constraint firstItem="voK-I5-B2D" firstAttribute="width" secondItem="GzK-Ay-M61" secondAttribute="width" constant="-40" id="Wcw-Gs-jo5"/>
                                     <constraint firstItem="yhU-uK-aCH" firstAttribute="centerX" secondItem="GzK-Ay-M61" secondAttribute="centerX" id="ZIb-QS-K98"/>
                                     <constraint firstItem="voK-I5-B2D" firstAttribute="top" secondItem="GzK-Ay-M61" secondAttribute="top" constant="44" id="ZP4-l8-czY"/>
+                                    <constraint firstItem="p0N-kP-zJH" firstAttribute="leading" secondItem="nHl-4s-0ow" secondAttribute="leading" id="mQl-P9-ezZ"/>
                                     <constraint firstAttribute="bottom" secondItem="Mdg-Sd-OIS" secondAttribute="bottom" constant="8" id="pYX-4S-08w"/>
+                                    <constraint firstItem="p0N-kP-zJH" firstAttribute="top" secondItem="nHl-4s-0ow" secondAttribute="bottom" id="q1L-dc-pgR"/>
+                                    <constraint firstItem="p0N-kP-zJH" firstAttribute="trailing" secondItem="nHl-4s-0ow" secondAttribute="trailing" id="rfM-Hi-70U"/>
                                     <constraint firstItem="voK-I5-B2D" firstAttribute="leading" secondItem="GzK-Ay-M61" secondAttribute="leading" constant="20" id="soW-dU-QHS"/>
                                     <constraint firstItem="yhU-uK-aCH" firstAttribute="top" secondItem="voK-I5-B2D" secondAttribute="bottom" constant="8" id="zyi-gL-sFV"/>
                                 </constraints>
@@ -428,22 +499,25 @@ Long</string>
                     <connections>
                         <outlet property="actionButton" destination="Mdg-Sd-OIS" id="g7f-yu-qma"/>
                         <outlet property="addProjectButton" destination="6ry-7M-5cp" id="Nt4-4d-EJq"/>
-                        <outlet property="changeDateButton" destination="ylb-JE-UBz" id="wNd-94-qV5"/>
                         <outlet property="changeEndedAtButton" destination="HAq-iU-tTc" id="MLh-qF-qiX"/>
                         <outlet property="changeStartedAtButton" destination="6my-f4-nzz" id="DuM-cK-IdU"/>
                         <outlet property="commentTextField" destination="6rf-6U-dn6" id="uDV-5I-Qbi"/>
-                        <outlet property="datePicker" destination="3uI-UT-Efv" id="rRi-nY-edZ"/>
                         <outlet property="durationLabel" destination="yhU-uK-aCH" id="IAh-j4-MM5"/>
                         <outlet property="endedAtPicker" destination="4TU-Vi-fOZ" id="iGH-Bj-tfA"/>
+                        <outlet property="projectSuggestionsHeightConstraint" destination="uNz-yR-X1W" id="Zqr-iH-PNf"/>
+                        <outlet property="projectSuggestionsTableView" destination="GV9-YS-jeL" id="m1j-VJ-RSn"/>
+                        <outlet property="projectSuggestionsView" destination="p0N-kP-zJH" id="VOc-6s-nt5"/>
                         <outlet property="projectTextField" destination="TMF-2x-OPc" id="gFT-6c-RR4"/>
                         <outlet property="scrollView" destination="GzK-Ay-M61" id="Jky-bu-H9P"/>
                         <outlet property="startedAtPicker" destination="Tzh-d8-nLD" id="qYc-Kr-l3I"/>
+                        <outlet property="submitEndedAtButton" destination="Vjx-vd-tI7" id="Pb0-iI-Ecs"/>
+                        <outlet property="submitStartedAtButton" destination="pXr-tD-rqv" id="dmf-TH-mgg"/>
                         <outlet property="titleTextField" destination="lhk-Wt-pCw" id="Vfh-xN-Ub2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zlJ-hz-jXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="536.79999999999995" y="-944.07796101949032"/>
+            <point key="canvasLocation" x="-266" y="-210"/>
         </scene>
     </scenes>
     <resources>
@@ -451,7 +525,4 @@ Long</string>
         <image name="settings" width="25" height="25"/>
         <image name="stop" width="25" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="wud-qu-jE4"/>
-    </inferredMetricsTieBreakers>
 </document>
