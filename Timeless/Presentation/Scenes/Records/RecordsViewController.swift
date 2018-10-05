@@ -45,7 +45,7 @@ class RecordsViewController: UIViewController, FlowScene {
         
         var insets = tableView.contentInset
         
-        insets.bottom = UIScreen.main.bounds.height - controlView.convert(controlView.bounds, to: view.window).minY
+        insets.bottom = controlView.bounds.height
         
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
@@ -72,7 +72,7 @@ class RecordsViewController: UIViewController, FlowScene {
     
     private func bindUI() {
         viewModel.recordsInfo()
-            .bind(to: tableView) { records, indexPath, tableView -> UITableViewCell in
+            .bind(to: tableView) { [weak self] records, indexPath, tableView -> UITableViewCell in
                 let cell = tableView.dequeueReusableCell(withIdentifier: RecordCell.identifier, for: indexPath) as! RecordCell
                 let record = records[indexPath.row]
                 
@@ -82,7 +82,10 @@ class RecordsViewController: UIViewController, FlowScene {
                 cell.durationLabel.text = record.durationString
                 cell.titleLabel.alpha = record.isTitlePlaceholder ? placeholderAlpha : 1.0
                 cell.projectLabel.alpha = record.isProjectPlaceholder ? placeholderAlpha : 1.0
-                
+                cell.playButton.reactive.tap
+                    .observe(with: { _ in self?.viewModel.createNew(from: record.record) })
+                    .dispose(in: cell.onReuseBag)
+
                 return cell
         }
         

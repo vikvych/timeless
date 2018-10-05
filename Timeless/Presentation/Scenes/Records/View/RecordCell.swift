@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ReactiveKit
 
 class RecordCell: UITableViewCell {
 
@@ -17,5 +18,13 @@ class RecordCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
+    
+    var onReuseBag = DisposeBag()
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        onReuseBag.dispose()
+    }
     
 }

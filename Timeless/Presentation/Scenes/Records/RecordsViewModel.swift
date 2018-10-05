@@ -121,10 +121,11 @@ struct RecordsViewModel {
         current.value = nil
     }
     
+    @discardableResult
     func createNew(from duplicate: Record? = nil) -> Record {
         stop()
         
-        let record = Record()
+        let record = Record(title: duplicate?.title, comment: duplicate?.comment, project: duplicate?.project)
         
         dataModelContainer.recordsDataModel.add(record: record)
         current.value = record
